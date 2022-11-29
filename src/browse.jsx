@@ -8,7 +8,7 @@ const GayTest = () => {
     
   return (
     <div className='w-full h-screen flex justify-center items-center text-4xl'>
-     <button onClick={GayTest}>See if your gay or not</button>
+     <button onClick={GayTest}>See if your gay or not. CLICK ME :)</button>
     </div>
   )
 }
