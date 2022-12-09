@@ -4,7 +4,7 @@ import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
 import Home from "./home";
 import About from "./about"
 import Browse from "./browse"
-import Shit from "./shit"
+
 
 function App() {
   return (
@@ -21,9 +21,7 @@ function App() {
         <div>
           <Link to="/browse"><Icon icon="material-symbols:manage-search" /></Link>
         </div>
-        <div>
-          <Link to="/shit"><Icon icon="mdi:emoticon-poop" /></Link>
-        </div>
+       
         </div>
       </div>
       <div className="flex-1">
@@ -32,7 +30,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About/>}></Route>
         <Route path="/browse" element={<Browse/>}></Route>
-        <Route path="/shit" element={<Shit/>}></Route>
+        
         
       </Routes>
       
