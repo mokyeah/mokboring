@@ -4,7 +4,7 @@ function home() {
   return (
     <div className=''>
         <div className='text-4xl justify-center items-center w-full h-screen flex hidden-mobile'>
-            The Mok Boring Webside
+            Hello world in 1080 language
         </div>
     </div>
   )

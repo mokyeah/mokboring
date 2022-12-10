@@ -21,7 +21,7 @@ function App() {
         <div>
           <Link to="/browse"><Icon icon="material-symbols:manage-search" /></Link>
         </div>
-       
+       y
         </div>
       </div>
       <div className="flex-1">
