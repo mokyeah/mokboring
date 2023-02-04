@@ -21,7 +21,7 @@ function App() {
         <div>
           <Link to="/browse"><Icon icon="material-symbols:manage-search" /></Link>
         </div>
-       y
+       
         </div>
       </div>
       <div className="flex-1">
@@ -36,11 +36,6 @@ function App() {
       
       </div>
     </Router>
-    <div className='hidden-pc flex flex-col justify-center items-center w-full h-screen gap-8 '>
-      <div>Sorry but mok is not bored now so nothing for phone</div>
-      <div className='text-4xl'><Icon icon="fa6-solid:poop" /></div>
-      <div>Tap 3 dots icon the menu options.</div>
-      <div>Select the checkbox against the Desktop site.</div></div>
     
     </div>
   );
