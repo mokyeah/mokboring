@@ -4,13 +4,13 @@ import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
 import Home from "./home";
 import About from "./about"
 import Browse from "./browse"
-
+import Index from "./index"
 
 function App() {
   return (
-    <div className=" w-full h-screen flex bg-zinc-800 text-white ">
+    <div className=" w-full min-h-screen flex bg-zinc-800 text-white">
     <Router>
-      <div className='border-r-4 hidden-mobile '>
+      <div className='border-r-4 hidden-mobile h-full fixed '>
       <div className="space-y-8 text-3xl p-5 ">
         <div>
           <Link to="/home"><Icon icon="material-symbols:home" /></Link>
@@ -24,13 +24,13 @@ function App() {
        
         </div>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 ml-24">
       <Routes>
         <Route path="/home" element={<Home/>}></Route>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About/>}></Route>
         <Route path="/browse" element={<Browse/>}></Route>
-        
+        <Route path="/index/:id" element={<Index/>}></Route>
         
       </Routes>
       

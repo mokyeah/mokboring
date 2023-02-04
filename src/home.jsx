@@ -11,7 +11,8 @@ function home() {
             </div><div className='bg-white rounded-sm h-3 w-full'></div>
             <div className='justify-center flex p-3 '>Who is Mok?</div> 
             <div className='justify-center flex'>Mok is a handsome man that is handsome</div>
-            <div className='justify-center p-24 flex '>CLICK to know more</div>
+            <div className='justify-center p-24 flex' >
+              CLICK to know more</div>
         </div>
       </div>
     </div>

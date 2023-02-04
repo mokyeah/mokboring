@@ -1,12 +1,34 @@
-import React from 'react'
+import React from "react";
 import { Icon } from "@iconify/react";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { collection } from "firebase/firestore";
+import { firestore } from "./firebase";
+import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
+
 function about() {
+  const [posts, loading, error] = useCollection(collection(firestore, "posts"));
+
   return (
-    <div className='justify-center items-center flex flex-col gap-8 w-full h-screen md:text-3xl'>
-        <div>Blog</div>
-       
+    <div className=" flex  gap-8 p-3 text-3xl">
+      <div className="box-border h-fit w-fit p-4 border-4 border-white flex-col">
+        <div>
+          {posts?.docs.map((post) => (
+            <div>
+              <div className="justify-center items-center flex underline underline-offset-3">
+                {post.data().catogory}
+              </div>
+              <div className="flex">{post.data().content}</div>
+              <div className="w-64 h-64 ">
+                <img src={post.data().picture}></img>
+              </div>
+              <div className="p-3 underline">
+              <Link to={`/index/${post.id}`}><button className="p-3 rounded-md">read more</button></Link></div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default about
+export default about;
