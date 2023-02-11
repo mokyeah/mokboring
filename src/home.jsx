@@ -7,12 +7,12 @@ function home() {
       <div className='text-4xl justify-center w-full h-screen  hidden-mobile flex'>
         <div className='flex-col w-full'>
         <div className='p-8'>
-            <div className='justify-center flex'>Mok's blog</div>
+            <div className='justify-center flex'>Blog full of nothing</div>
           
             </div><div className='bg-white rounded-sm h-3 w-full'></div>
-            <div className='justify-center flex p-3 '>Who is Mok?</div> 
-            <div className='justify-center flex'>Mok is a handsome man that is handsome</div>
-            <div className='justify-center p-24 flex' ><Link to="/about "><button className="p-3 rounded-md">Click to know more</button></Link>
+            <div className='justify-center flex p-3 '>nothing</div> 
+            <div className='justify-center flex'>made by Mok</div>
+            <div className='justify-center p-24 flex' ><button><Link to="/about "><button className="button p-3 rounded-md">Click to know more</button></Link></button>
             </div>
         </div>
       </div>

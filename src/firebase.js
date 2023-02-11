@@ -1,11 +1,10 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import "firebase/firestore";
-import { getFirestore } from "firebase/firestore";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
-
+import "firebase/compat/firestore";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import 'firebase/compat/firestore'
+import { GoogleAuthProvider } from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore"; // If you enabled Analytics in your project, add the Firebase SDK for Analytics
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,20 +21,21 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const firestore = getFirestore(); 
+export const app = firebase.initializeApp(firebaseConfig);
+export const firestore =  firebase.firestore();
 export const provider = new GoogleAuthProvider();
-export const auth = getAuth();
+export const auth = firebase.auth();
 export const signInWithGoogle = () => {
-  signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
+  auth.signInWithPopup(provider)
+  .then(async({user, additionalUserInfo}) => { console.log(user, additionalUserInfo)
+    if (additionalUserInfo.isNewUser) {
+      await setDoc(doc(firestore, "users", user.uid), {
+        name: user.displayName,
+        
+        picture: user.photoURL,
+        introduction: "",
+      });
+    }
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;

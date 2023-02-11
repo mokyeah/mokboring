@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react';
-import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes, Link, BrowserRouter as Router, useActionData } from "react-router-dom";
 import Home from "./home";
 import About from "./about"
 import Browse from "./browse"
 import Index from "./index"
 import User from "./user"
+import Intro from "./intro"
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth, firestore } from './firebase';
+import { doc, getDoc } from 'firebase/firestore';
+
 
 function App() {
+const [user, setUser] = useState(null)
+const [data, setData] = useState("")
+  useEffect (() => {
+    onAuthStateChanged(auth, (user) => {
+      setUser(user)
+      getDoc(doc(firestore, "users", user.uid)).then((doc) => {
+        setData(doc.data())
+      })
+    })
+  }, [])
+
+
+  
   return (
     <div className=" w-full min-h-screen flex bg-zinc-800 text-white">
     <Router>
@@ -25,7 +43,7 @@ function App() {
         </div>
         </div>
         <div className=''>
-        <Link to="/user"><Icon icon="carbon:user-avatar-filled" /></Link>
+        {user ? <Link to="/intro"><img className="rounded-md w-10 h-10" src={data?.picture}/></Link> : <Link to="/user"><Icon icon="carbon:user-avatar-filled"/></Link>}
        </div>
         </div>
         
@@ -38,6 +56,7 @@ function App() {
         <Route path="/browse" element={<Browse/>}></Route>
         <Route path="/index/:id" element={<Index/>}></Route>
         <Route path="/user" element={<User/>}></Route>
+        <Route path="/intro" element={<Intro/>}></Route>
       </Routes>
       
       </div>

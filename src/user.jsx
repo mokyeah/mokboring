@@ -40,7 +40,7 @@ function user() {
               </div>
             </div>
             <div className="p-3">
-              <button><div className="bg-black text-white rounded-md w-32 h-12 justify-center items-center flex" >Google </div></button>    
+              <button><div className="bg-black text-white rounded-md w-32 h-12 justify-center items-center flex" onClick={() => signInWithGoogle()}>Google </div></button>    
           </div>
         </div>
       </div>
