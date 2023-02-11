@@ -9,7 +9,7 @@ function about() {
   const [posts, loading, error] = useCollection(collection(firestore, "posts"));
 
   return (
-    <div className=" flex  gap-8 p-3 text-3xl">
+    <div className=" flex flex-1 gap-8 p-3 text-3xl">
       <div className="h-fit w-fit flex gap-8">
           {posts?.docs.map((post) => (
             <div className="border-4 border-white p-3 relative">
