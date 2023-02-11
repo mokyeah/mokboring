@@ -10,22 +10,22 @@ function about() {
 
   return (
     <div className=" flex  gap-8 p-3 text-3xl">
-      <div className="box-border h-fit w-fit p-4 border-4 border-white flex-col">
-        <div>
+      <div className="h-fit w-fit flex gap-8">
           {posts?.docs.map((post) => (
-            <div>
-              <div className="justify-center items-center flex underline underline-offset-3">
+            <div className="border-4 border-white p-3 relative">
+              <div className="justify-center items-center flex  underline-offset-3">
                 {post.data().catogory}
               </div>
-              <div className="flex">{post.data().content}</div>
-              <div className="w-64 h-64 ">
+              <div className="flex text-2xl">{post.data().content}</div>
+              <div className={`${post.data().picture ? 'w-64 h-64 ':''}`}>  
                 <img src={post.data().picture}></img>
               </div>
-              <div className="p-3 underline">
-              <Link to={`/index/${post.id}`}><button className="p-3 rounded-md">read more</button></Link></div>
+              <div className="p-3 ">  
+              <Link to={`/index/${post.id}`}><button className="p-2 rounded-md ">read more</button></Link></div>
+             
             </div>
+            
           ))}
-        </div>
       </div>
     </div>
   );

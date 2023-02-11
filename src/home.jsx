@@ -1,5 +1,6 @@
 import React from 'react'
 import { Icon } from "@iconify/react";
+import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
 function home() {
   return (
       <div>
@@ -11,8 +12,8 @@ function home() {
             </div><div className='bg-white rounded-sm h-3 w-full'></div>
             <div className='justify-center flex p-3 '>Who is Mok?</div> 
             <div className='justify-center flex'>Mok is a handsome man that is handsome</div>
-            <div className='justify-center p-24 flex' >
-              CLICK to know more</div>
+            <div className='justify-center p-24 flex' ><Link to="/about"><button className="p-3 rounded-md">Click to know more</button></Link>
+            </div>
         </div>
       </div>
     </div>
