@@ -22,7 +22,7 @@ function about() {
                 <img src={post.data().picture}></img>
               </div>
               <div className="p-3 underline">
-              <Link to={`/index/${post.id}`}><button className="p-3 rounded-md button">read more</button></Link></div>
+              <Link to={`/index/${post.id}`}><button className="rounded-md button">read more</button></Link></div>
             </div>
           ))}
         

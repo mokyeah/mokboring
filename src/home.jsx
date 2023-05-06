@@ -9,11 +9,14 @@ function home() {
         <div className='p-8'>
             <div className='justify-center flex'>Blog full of nothing</div>
           
-            </div><div className='bg-white rounded-sm h-3 w-full'></div>
+            </div>
+            
             <div className='justify-center flex p-3 '>nothing</div> 
             <div className='justify-center flex'>made by Mok</div>
             <div className='justify-center p-24 flex' ><button><Link to="/about "><button className="button p-3 rounded-md">Click to know more</button></Link></button>
+            
             </div>
+            <div className='justify-center flex '>Do you know? An ant is called as an ant because its an ant</div>
         </div>
       </div>
     </div>
